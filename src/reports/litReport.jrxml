@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85070205-c93c-4ea6-94fb-9a8d07b58c82">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="63"/>
+	<queryString>
+		<![CDATA[select * from lit l,salle s where s.idsalle=l.idsalle]]>
+	</queryString>
+	<field name="IDLIT" class="java.math.BigDecimal"/>
+	<field name="IDSALLE" class="java.math.BigDecimal"/>
+	<field name="CODE" class="java.lang.String"/>
+	<field name="PHOTO" class="oracle.jdbc.OracleBlob"/>
+	<field name="NUMERO" class="java.math.BigDecimal"/>
+	<field name="LIBELLE" class="java.lang.String"/>
+	<group name="grpsalle">
+		<groupExpression><![CDATA[$F{IDSALLE}]]></groupExpression>
+		<groupHeader>
+			<band height="82">
+				<staticText>
+					<reportElement x="10" y="62" width="100" height="20" uuid="832a6a71-9fcd-49b1-9817-fcbace32cd33"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[#]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="186" y="62" width="150" height="20" uuid="2a3a1f39-17df-40e9-8a1e-2bd5fc07b0c9"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Code lit]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="356" y="62" width="123" height="20" uuid="728defc2-a446-4165-a00a-3f79ffc1b9cd"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Salle]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="19" width="541" height="20" uuid="413a3125-6e2b-443f-9598-8fd15549041b"/>
+					<textElement textAlignment="Center">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Liste des Lits de la salle :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="379" y="19" width="100" height="20" uuid="1011c21f-901d-4dea-98ad-e9b9cb0a825e"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LIBELLE}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="48" width="555" height="1" uuid="f0ee64e0-2a7a-4b9e-9927-b71111bdbd39"/>
+				</line>
+				<line>
+					<reportElement x="554" y="49" width="1" height="33" uuid="8580020a-0c27-4836-b30c-03bd2bbd4bb4"/>
+				</line>
+				<line>
+					<reportElement x="337" y="49" width="1" height="33" uuid="d06247f7-304a-4f50-9964-591a5997d863"/>
+				</line>
+				<line>
+					<reportElement x="156" y="48" width="1" height="34" uuid="be6bdc49-7495-4597-b953-c515ebba5638"/>
+				</line>
+				<line>
+					<reportElement x="1" y="48" width="1" height="34" uuid="abc7b605-e3d9-4674-b743-79b260671a9e"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="7" width="527" height="20" uuid="4187c2a2-5180-4aa6-a102-6e2e4dd50c8b"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTES DES LITS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="2" width="120" height="28" uuid="d996beeb-88c2-4fb8-afa3-3acceb3ad786"/>
+				<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="2" width="136" height="28" uuid="383a6fea-422b-4c7d-9f44-5703afdf5e75"/>
+				<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="356" y="2" width="123" height="28" uuid="27a2a00a-a23b-4ca9-b52b-6b41a04835bf"/>
+				<textFieldExpression><![CDATA[$F{LIBELLE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="1" width="555" height="1" uuid="c362d469-b6ce-488c-887c-f9453addcdb3"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="30" width="555" height="1" uuid="b4732f1f-10eb-450b-8827-66212f8001fa"/>
+			</line>
+			<line>
+				<reportElement x="335" y="0" width="1" height="30" uuid="ee5106ca-15db-472f-91bb-97a0dceaf39e"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="30" uuid="75491b94-4fa7-4f55-82bc-2ac2e4d1c484"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="0" width="1" height="30" uuid="0066a831-78ff-4ef7-8811-43b3431fc00d"/>
+			</line>
+			<line>
+				<reportElement x="155" y="0" width="1" height="30" uuid="33170cc2-9c1c-4893-9f0d-c6db2f9f84a4"/>
+			</line>
+			<line>
+				<reportElement x="2" y="0" width="555" height="1" uuid="ca57ad26-3659-4ebb-816b-7841b0224e92"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

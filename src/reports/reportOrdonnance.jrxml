@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c541f3a1-ea17-4622-ac8f-e82dcbc0a67a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select distinct o.idordonnance,o.date_ord,e.nom,e.prenom,s.libelle as slib,p.libelle as plib,l.code ,p.dosage,p.voie,p.unitejour from ordonnance o,hospitaliser h,etudiant e,ordprod op,salle s,lit l,produit p where s.idsalle=l.idsalle and o.idhosp=h.idhosp and h.idetudiant=e.idetudiant and o.idetudiant =h.idetudiant and h.idlit=o.IDLIT and p.idproduit=op.idproduit and op.idordonnance=o.idordonnance and l.idlit=o.idlit]]>
+	</queryString>
+	<field name="IDORDONNANCE" class="java.math.BigDecimal"/>
+	<field name="DATE_ORD" class="java.sql.Timestamp"/>
+	<field name="NOM" class="java.lang.String"/>
+	<field name="PRENOM" class="java.lang.String"/>
+	<field name="SLIB" class="java.lang.String"/>
+	<field name="PLIB" class="java.lang.String"/>
+	<field name="CODE" class="java.lang.String"/>
+	<field name="DOSAGE" class="java.lang.String"/>
+	<field name="VOIE" class="java.lang.String"/>
+	<field name="UNITEJOUR" class="java.math.BigDecimal"/>
+	<group name="ordo_groupe">
+		<groupExpression><![CDATA[$F{IDORDONNANCE}]]></groupExpression>
+		<groupHeader>
+			<band height="83">
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="63" backcolor="#CCCCCC" uuid="e6a61980-69bc-4ec3-875f-e5e1d7f278eb"/>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="35" width="100" height="20" uuid="61a2f122-40e6-406e-8cd6-a8261e742c14"/>
+					<textFieldExpression><![CDATA[$F{NOM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="35" width="100" height="20" uuid="6f4848b4-c43a-4a2b-a52d-d78199c29502"/>
+					<textFieldExpression><![CDATA[$F{PRENOM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="416" y="35" width="100" height="20" uuid="3dbbb63c-b495-4ece-8b3a-e5aa5e12a034"/>
+					<textFieldExpression><![CDATA[$F{SLIB}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="15" width="200" height="20" uuid="6f90b9a9-acd7-482a-afe9-04ec3e436a68"/>
+					<text><![CDATA[Nom et prenom]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="281" y="15" width="100" height="20" uuid="4afdc7cc-f663-466d-8d7b-7255d7660aa7"/>
+					<text><![CDATA[Lit]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="281" y="35" width="100" height="20" uuid="9fe9c0f8-304d-48a7-962c-6fbfb3e4502e"/>
+					<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="417" y="15" width="100" height="20" uuid="6d8b1adc-f130-4fa8-a6d2-a0cb5077af25"/>
+					<text><![CDATA[Salle]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="63" width="100" height="20" uuid="109f159e-33d2-4ee1-ba90-58382f454e6d"/>
+					<text><![CDATA[LIBELLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="119" y="63" width="100" height="20" uuid="28b1fbfd-f5a0-4e92-b4a8-e66e4e03d7ac"/>
+					<text><![CDATA[DOSAGE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="245" y="63" width="100" height="20" uuid="4348856a-de9f-4c0f-ab34-6464b37d88f8"/>
+					<text><![CDATA[VOIE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="371" y="63" width="100" height="20" uuid="4ca4f4cf-649f-4f53-97fd-03f5f828f5dd"/>
+					<text><![CDATA[UNITE PAR JOUR]]></text>
+				</staticText>
+				<line>
+					<reportElement x="516" y="63" width="1" height="20" uuid="67252e41-e7b7-4669-afba-93f90da894e5"/>
+				</line>
+				<line>
+					<reportElement x="356" y="63" width="1" height="20" uuid="519b5a3a-dc8c-478a-bc73-e6caf4259ee8"/>
+				</line>
+				<line>
+					<reportElement x="219" y="63" width="1" height="20" uuid="27042211-841a-4c24-8193-f2c4aca5e6b4"/>
+				</line>
+				<line>
+					<reportElement x="110" y="63" width="1" height="20" uuid="38e8cccc-f99e-436b-b9fb-4b2b619b0f08"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="23" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="62" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="62" backcolor="#CCCCCC" uuid="cea8560f-d6c6-4148-815e-b11c52724901"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="137" y="0" width="334" height="20" uuid="0f41df03-6a8b-49b9-844b-4258d3c5840d"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CENOU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="20" width="334" height="20" uuid="1a3b22a9-df95-44a0-bab6-b0be501ef4a3"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Centre Univervité Joseph KI-ZERBO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="40" width="334" height="20" uuid="afeed3dc-54c1-477e-81ce-b725a35c8db9"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Ordonnance]]></text>
+			</staticText>
+			<image>
+				<reportElement x="7" y="10" width="130" height="40" uuid="33d7afc2-b50a-4440-853a-e05e713e3852"/>
+				<imageExpression><![CDATA["C:\\Users\\DELL\\Documents\\NetBeansProjects\\hospitalisation\\src\\icons\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="-2" y="1" width="100" height="20" uuid="9feef937-a9b5-4615-b5ce-21b9e30f27e2"/>
+				<textFieldExpression><![CDATA[$F{PLIB}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="119" y="0" width="100" height="20" uuid="1db269a6-676b-4cb6-9d00-b96c1687a191"/>
+				<textFieldExpression><![CDATA[$F{DOSAGE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="245" y="0" width="100" height="20" uuid="a8b6c541-4679-4e73-8fdc-b34e0c577d6e"/>
+				<textFieldExpression><![CDATA[$F{VOIE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="0" width="100" height="20" uuid="b8c676a4-794a-4209-bc39-0f6c6ad89d6a"/>
+				<textFieldExpression><![CDATA[$F{UNITEJOUR}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="516" height="1" uuid="d8a186d4-f92a-484d-991d-f7f129a41b61"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="517" height="1" uuid="f97e8527-7ce2-4133-8838-15b346cec339"/>
+			</line>
+			<line>
+				<reportElement x="516" y="1" width="1" height="20" uuid="81cd8ed8-6f34-494c-979e-d159419946c7"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="1" width="1" height="20" uuid="72194c75-8ba9-4ebe-b2f6-f4439a9cef61"/>
+			</line>
+			<line>
+				<reportElement x="-2" y="-20" width="1" height="20" uuid="047f28f0-bf5b-4736-8524-5d5448641f77"/>
+			</line>
+			<line>
+				<reportElement x="-2" y="-20" width="519" height="1" uuid="8c6639d3-4f93-47b9-9af4-c291849393a5"/>
+			</line>
+			<line>
+				<reportElement x="356" y="0" width="1" height="20" uuid="9ff2bbe5-1da5-479c-9c1a-b030eebb4ef8"/>
+			</line>
+			<line>
+				<reportElement x="218" y="1" width="1" height="20" uuid="4532ffda-4b20-4597-8ec9-607c04b48e7f"/>
+			</line>
+			<line>
+				<reportElement x="109" y="0" width="1" height="20" uuid="1ff74f62-9397-4293-a84f-c2765dfa8dfb"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
